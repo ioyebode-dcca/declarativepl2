@@ -39,6 +39,13 @@ pipeline {
 					echo 'performing Junit test'
 					}
 				}
+				
+				stage('ansible verify') {
+				    steps {
+					sh 'ansible --version'
+					}
+				}
+				
 				stage('Selenium Test') {
 					steps {
 					echo 'performing Selenium testing'
