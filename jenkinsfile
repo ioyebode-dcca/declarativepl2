@@ -11,6 +11,13 @@ pipeline {
 				input('impl, dev, test?')
 			}
 		}
+		
+		stage ('parameters') {
+		    choice(
+			name: 'PATCH_ENV',
+			choices: ['dev', 'test', 'impl'],
+			description: 'Enter Environment to patch')
+		}
 		stage ('three') {
 			steps {
 			echo 'Staging area verified'
